@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CoreCraft | Catálogo Oficial & Serviços Digitais</title>
+  <style>
+    :root {
+      --bg: #0b0f19;
+      --card: #131a2a;
+      --card-border: #1f2a44;
+      --primary: #3b82f6;
+      --primary-hover: #2563eb;
+      --accent: #22c55e;
+      --text: #f8fafc;
+      --muted: #94a3b8;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+    }
+
+    header {
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+      border-bottom: 1px solid var(--card-border);
+      padding: 2rem 1rem;
+      text-align: center;
+    }
+
+    .brand {
+      font-size: 2rem;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      color: #fff;
+    }
+
+    .brand span {
+      color: var(--primary);
+    }
+
+    .tagline {
+      color: var(--muted);
+      max-width: 600px;
+      margin: 0.5rem auto 1.2rem;
+      font-size: 0.95rem;
+    }
+
+    .contact-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(34, 197, 94, 0.15);
+      color: #4ade80;
+      border: 1px solid rgba(34, 197, 94, 0.3);
+      padding: 0.45rem 1rem;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 1.5rem 1rem 4rem;
+    }
+
+    .filters {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-bottom: 2rem;
+    }
+
+    .filter-btn {
+      background: var(--card);
+      color: var(--muted);
+      border: 1px solid var(--card-border);
+      padding: 0.5rem 1rem;
+      border-radius: 999px;
+      cursor: pointer;
+      font-size: 0.85rem;
+      font-weight: 600;
+      transition: all 0.2s;
+    }
+
+    .filter-btn.active,
+    .filter-btn:hover {
+      background: var(--primary);
+      color: #fff;
+      border-color: var(--primary);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+      gap: 1.25rem;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--card-border);
+      border-radius: 14px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.2s;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+    }
+
+    .card img {
+      width: 100%;
+      height: 190px;
+      object-fit: cover;
+      background: #1e293b;
+    }
+
+    .card-body {
+      padding: 1.1rem;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    .badge {
+      display: inline-block;
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--primary);
+      font-weight: 700;
+      margin-bottom: 0.35rem;
+    }
+
+    .card-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 0.4rem;
+    }
+
+    .card-desc {
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+      flex-grow: 1;
+    }
+
+    .price {
+      font-size: 1.2rem;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 0.9rem;
+    }
+
+    .btn-wa {
+      display: block;
+      text-align: center;
+      background: var(--accent);
+      color: #052e16;
+      font-weight: 700;
+      text-decoration: none;
+      padding: 0.7rem 1rem;
+      border-radius: 10px;
+      font-size: 0.9rem;
+      transition: opacity 0.2s;
+    }
+
+    .btn-wa:hover {
+      opacity: 0.9;
+    }
+
+    .info-box {
+      margin-top: 3rem;
+      background: var(--card);
+      border: 1px solid var(--card-border);
+      border-radius: 14px;
+      padding: 1.5rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.2rem;
+    }
+
+    .info-item h3 {
+      font-size: 0.95rem;
+      margin-bottom: 0.3rem;
+      color: #fff;
+    }
+
+    .info-item p {
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    footer {
+      text-align: center;
+      padding: 1.5rem;
+      border-top: 1px solid var(--card-border);
+      color: var(--muted);
+      font-size: 0.82rem;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="brand">Core<span>Craft</span></div>
+    <p class="tagline">Equipamentos premium para criadores, edição viral, design, aplicativos, bots para WhatsApp e soluções digitais.</p>
+    <a class="contact-pill" href="https://wa.me/258843765509?text=Ol%C3%A1%20CoreCraft!%20Vim%20pelo%20cat%C3%A1logo%20oficial." target="_blank">
+      WhatsApp Oficial & Suporte: 843765509
+    </a>
+  </header>
+
+  <main class="container">
+    <div class="filters">
+      <button class="filter-btn active" onclick="filterItems('todos', this)">Todos</button>
+      <button class="filter-btn" onclick="filterItems('equipamentos', this)">Equipamentos Premium</button>
+      <button class="filter-btn" onclick="filterItems('servicos', this)">Edição & Design</button>
+      <button class="filter-btn" onclick="filterItems('tech', this)">Apps & Bots</button>
+      <button class="filter-btn" onclick="filterItems('digitais', this)">Produtos Digitais</button>
+    </div>
+
+    <div class="grid" id="catalog-grid"></div>
+
+    <section class="info-box">
+      <div class="info-item">
+        <h3>Como Encomendar</h3>
+        <p>Escolha o equipamento ou serviço desejado, clique no botão verde e fale diretamente connosco no WhatsApp <strong>843765509</strong>.</p>
+      </div>
+      <div class="info-item">
+        <h3>Pagamentos & Confirmação</h3>
+        <p>Todos os valores são apresentados em Meticais (MZN). Os detalhes de pagamento e envio de comprovativos são tratados pelo número oficial <strong>843765509</strong>.</p>
+      </div>
+      <div class="info-item">
+        <h3>Projetos Sob Medida</h3>
+        <p>Para edições complexas, aplicativos ou equipamentos específicos fora da lista, peça um orçamento rápido pelo WhatsApp.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    © 2026 CoreCraft — Contacto Oficial: 843765509
+  </footer>
+
+  <script>
+    const WHATSAPP_NUMBER = "258843765509";
+
+    // Lista de itens: para equipamentos com preço base, o sistema aplica +2% automaticamente se basePrice estiver definido.
+    const items = [
+      {
+        category: "equipamentos",
+        badge: "Equipamento Premium",
+        title: "Câmera Compacta 4K para Vlog",
+        desc: "Tela articulada 180°, foco rápido, excelente para Reels, TikTok e gravações em movimento.",
+        image: "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=800&q=80",
+        basePrice: 51860 // Com +2% fica ~52.900 MZN
+      },
+      {
+        category: "equipamentos",
+        badge: "Equipamento Premium",
+        title: "Kit Microfone Sem Fio de Lapela",
+        desc: "Captação de áudio limpo com redução de ruído para telemóveis e câmaras.",
+        image: "https://images.unsplash.com/photo-1590602847861-f357a9332bbc?auto=format&fit=crop&w=800&q=80",
+        basePrice: 4500
+      },
+      {
+        category: "equipamentos",
+        badge: "Equipamento Premium",
+        title: "Iluminação LED Profissional + Tripé",
+        desc: "Luz contínua ajustável para estúdio, gravações noturnas e vídeos de alta retenção.",
+        image: "https://images.unsplash.com/photo-1527011046414-4781f1f94f8c?auto=format&fit=crop&w=800&q=80",
+        basePrice: 6200
+      },
+      {
+        category: "servicos",
+        badge: "Edição Viral",
+        title: "Edição de Vídeo Viral (Reels / TikTok)",
+        desc: "Cortes dinâmicos, legendas chamativas, efeitos sonoros e ritmo focado em retenção.",
+        image: "https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=800&q=80",
+        fixedPriceText: "Sob consulta / Pacotes em MZN"
+      },
+      {
+        category: "servicos",
+        badge: "Design & Marca",
+        title: "Logotipo & Identidade Visual",
+        desc: "Criação de logotipo profissional, paleta de cores e artes digitais prontas para redes sociais.",
+        image: "https://images.unsplash.com/photo-1626785774573-4b799315345d?auto=format&fit=crop&w=800&q=80",
+        fixedPriceText: "A partir de 1.500 MZN"
+      },
+      {
+        category: "tech",
+        badge: "Automação",
+        title: "Bot Inteligente 24/7 para WhatsApp",
+        desc: "Atendimento automático com IA para responder clientes, enviar catálogos e fechar vendas.",
+        image: "https://images.unsplash.com/photo-1611746872915-64382b5c76da?auto=format&fit=crop&w=800&q=80",
+        fixedPriceText: "Sob orçamento em MZN"
+      },
+      {
+        category: "tech",
+        badge: "Desenvolvimento",
+        title: "Criação de Aplicativo Móvel",
+        desc: "Aplicativos personalizados para o seu negócio ou projeto digital.",
+        image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=800&q=80",
+        fixedPriceText: "Sob orçamento em MZN"
+      },
+      {
+        category: "digitais",
+        badge: "Produto Digital",
+        title: "E-books & Templates de Monetização",
+        desc: "Materiais práticos e templates prontos para acelerar vendas e criação de conteúdo.",
+        image: "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=800&q=80",
+        fixedPriceText: "A partir de 500 MZN"
+      }
+    ];
+
+    function formatMZN(basePrice) {
+      const finalPrice = Math.round(basePrice * 1.02);
+      return finalPrice.toLocaleString("pt-PT") + " MZN";
+    }
+
+    function renderItems(filter = "todos") {
+      const grid = document.getElementById("catalog-grid");
+      grid.innerHTML = "";
+
+      const filtered = filter === "todos" ? items : items.filter(item => item.category === filter);
+
+      filtered.forEach(item => {
+        const priceDisplay = item.basePrice ? formatMZN(item.basePrice) : item.fixedPriceText;
+        const message = encodeURIComponent(`Olá CoreCraft! Tenho interesse em: ${item.title} (${priceDisplay}). Podemos avançar?`);
+
+        const card = document.createElement("div");
+        card.className = "card";
+        card.innerHTML = `
+          <img src="${item.image}" alt="${item.title}" />
+          <div class="card-body">
+            <span class="badge">${item.badge}</span>
+            <h2 class="card-title">${item.title}</h2>
+            <p class="card-desc">${item.desc}</p>
+            <div class="price">${priceDisplay}</div>
+            <a class="btn-wa" href="https://wa.me/${WHATSAPP_NUMBER}?text=${message}" target="_blank">
+              Pedir no WhatsApp
+            </a>
+          </div>
+        `;
+        grid.appendChild(card);
+      });
+    }
+
+    function filterItems(category, btn) {
+      document.querySelectorAll(".filter-btn").forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+      renderItems(category);
+    }
+
+    renderItems();
+  </script>
+</body>
+</html>
